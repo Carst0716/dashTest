@@ -2,6 +2,7 @@ import dash
 from dash import html, dcc, Input, Output
 
 app = dash.Dash(__name__)
+server = app.server  # Necesario para Gunicorn
 
 app.layout = html.Div([
     html.H1("Suma de Dos Números"),
@@ -27,4 +28,4 @@ def update_resultado(num1, num2):
         return "Por favor, introduce números válidos."
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
